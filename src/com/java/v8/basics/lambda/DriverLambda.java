@@ -52,7 +52,6 @@ public class DriverLambda {
 		 *  */
 		Consumer<String> consumer2 = s -> System.out.println(s);
 		Consumer<String> consumer = System.out::println; // Both the ways are correct and same
-		
 	}
 	
 }

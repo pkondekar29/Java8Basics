@@ -22,8 +22,12 @@ public class MyClass implements Interface1, Interface2 {
 		IntStream.range(0, 100).forEach(t -> list.add(Integer.toString(t)));
 		//list.stream().forEach(System.out::print);
 		list.parallelStream()
-			.map(t -> t)
+		//	.map(t -> t)
 			.forEach(t -> doSomething(t));
+		
+		Interface1 i1 = () -> {
+			System.out.print("das");
+		};
 	}
 
 	private static void doSomething(String t) {

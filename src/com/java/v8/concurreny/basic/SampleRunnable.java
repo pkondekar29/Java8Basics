@@ -1,4 +1,4 @@
-package com.java.concurrency;
+package com.java.v8.concurreny.basic;
 
 import java.util.ArrayList;
 import java.util.List;

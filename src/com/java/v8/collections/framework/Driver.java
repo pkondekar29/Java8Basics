@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Executor {
+public class Driver {
 
 	public static void main(String[] args) {
 		Collection<String> collection = new ArrayList<>();

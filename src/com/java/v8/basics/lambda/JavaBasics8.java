@@ -1,4 +1,4 @@
-package com.java.v8.basics;
+package com.java.v8.basics.lambda;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

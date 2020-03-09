@@ -19,6 +19,8 @@ import com.java.v8.basics.beans.ExperimentalObject;
  * 4. Predicate 
  * 		takes an object of one type and returns a boolean. 
  * 		It is used in the map, filter step while using functional interface
+ *	
+ * 	All types of JDK supported functions are present on - https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
  * 
  * @author I353403
  *
@@ -51,7 +53,7 @@ public class DriverProgramJDKexamples {
 		
 		// Function example
 		/**
-		 * Base functional insterface
+		 * Base functional interface
 		 * Function<T, R>{
 		 * 		R apply(T);
 		 * }

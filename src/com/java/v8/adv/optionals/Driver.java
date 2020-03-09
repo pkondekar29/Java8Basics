@@ -1,14 +1,10 @@
 package com.java.v8.adv.optionals;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public class Driver {

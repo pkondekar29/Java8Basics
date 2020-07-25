@@ -7,11 +7,15 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.BiConsumer;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java.util.stream.Collector.Characteristics;
 
 import com.java.v8.basics.beans.ExperimentalObject;
 
@@ -65,9 +69,12 @@ public class Driver{
         listObj.add(new ExperimentalObject("1", "asldkj", 10));
         listObj.add(new ExperimentalObject("2", "asdlk", 40));
         listObj.add(new ExperimentalObject("3", "wepr", 30));
-        listObj.add(new ExperimentalObject("4", "dfkl", 40));
+        listObj.add(new ExperimentalObject("3", "wepr", 30));
+        listObj.add(new ExperimentalObject("3", "wepr", 30));
+        listObj.add(new ExperimentalObject("2", "dfkl", 20));
+        listObj.add(new ExperimentalObject("2", "dfkl", 20));
         listObj.add(new ExperimentalObject("5", "cmn", 50));
-
+        
         Map<Integer, List<ExperimentalObject>> objMap = 
             listObj.stream()
                 // The list of objects is grouped on the basis of value being the key
@@ -102,7 +109,18 @@ public class Driver{
         System.out.println();
 
         // Collectors.collectingAndThen() -> can pass unmidifyable map as supplier to create unmodifyable maps
-        
+        Map<String, Optional<ExperimentalObject>> maxValueMap = listObj.stream()
+        		.collect(Collectors.groupingBy(ExperimentalObject::getId,
+        				Collectors.reducing((o1, o2) -> o1)
+        		));
+        maxValueMap.entrySet()
+			.stream()
+			// Filter the tickets by checking if the optional is present
+			.filter(entry -> entry.getValue().isPresent())
+			// Map the optional with its TicketGsap value
+			.map(entry -> entry.getValue().get())
+			// Collect it to a list
+			.forEach(System.out::println);
     }
 
 }
